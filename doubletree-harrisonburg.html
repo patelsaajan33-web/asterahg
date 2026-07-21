@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoubleTree by Hilton Harrisonburg — Investment Opportunity | Astera Hospitality Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;--dark:#111;--card:#161616;--card2:#1b1b1b;
+  --gold:#C4A44A;--gold-lt:#DCC06E;--gold-dim:rgba(196,164,74,.11);--gold-br:rgba(196,164,74,.22);
+  --white:#F7F5F1;--g1:#999;--g2:#C4C0B8;--hr:rgba(255,255,255,.06);
+  --green:#4ade80;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;background:rgba(8,8,8,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--gold-br)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.logo b{color:var(--gold);font-weight:400}
+.nav-r{display:flex;align-items:center;gap:20px;list-style:none}
+.nav-r a{color:var(--g1);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-r a:hover{color:var(--gold)}
+.nbtn{background:var(--gold)!important;color:var(--black)!important;padding:8px 20px;font-weight:600!important;transition:background .2s!important}
+.nbtn:hover{background:var(--gold-lt)!important}
+
+/* HERO */
+.deal-hero{min-height:70vh;display:flex;align-items:flex-end;padding:140px 52px 60px;position:relative;overflow:hidden;background:linear-gradient(180deg,#080808 0%,#0d0b06 100%);}
+.deal-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 40%,rgba(196,164,74,.07) 0%,transparent 60%);pointer-events:none}
+.hero-inner{max-width:1140px;margin:0 auto;width:100%;}
+.deal-flag{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid var(--gold-br);padding:6px 14px;margin-bottom:24px;}
+.deal-flag span{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+.deal-status{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:3px 9px;background:rgba(74,222,128,.12);color:var(--green);margin-left:8px;}
+.deal-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,66px);font-weight:300;line-height:1.05;margin-bottom:12px;}
+.deal-hero h1 i{font-style:italic;color:var(--gold);}
+.deal-sub{font-size:15px;color:var(--g2);font-weight:300;margin-bottom:36px;}
+.hero-stats{display:flex;gap:2px;flex-wrap:wrap;}
+.hstat{background:var(--card);border:1px solid var(--gold-br);padding:18px 22px;min-width:140px;}
+.hstat-n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:4px;}
+.hstat-l{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);}
+
+/* LAYOUT */
+.deal-body{max-width:1140px;margin:0 auto;padding:72px 52px;display:grid;grid-template-columns:1fr 340px;gap:52px;align-items:start;}
+.deal-main{}
+.deal-sidebar{position:sticky;top:100px;}
+
+/* SECTIONS */
+.sec-label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sec-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,38px);font-weight:300;line-height:1.15;margin-bottom:16px;}
+.sec-h i{font-style:italic;color:var(--gold);}
+.sec-p{font-size:15px;color:var(--g2);line-height:1.8;font-weight:300;margin-bottom:20px;}
+.section-divider{border:none;border-top:1px solid var(--hr);margin:52px 0;}
+
+/* HIGHLIGHTS */
+.highlights{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:28px;}
+.hl{background:var(--card);border:1px solid var(--hr);padding:22px 20px;transition:border-color .2s;}
+.hl:hover{border-color:var(--gold-br);}
+.hl-icon{font-size:22px;margin-bottom:12px;}
+.hl-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.hl-body{font-size:12px;color:var(--g1);line-height:1.65;}
+
+/* DEMAND DRIVERS */
+.drivers{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px;}
+.driver{background:var(--card);border:1px solid var(--hr);padding:20px 18px;}
+.driver-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.driver-body{font-size:12px;color:var(--g1);line-height:1.65;}
+
+/* FINANCIALS TABLE */
+.fin-table{width:100%;border-collapse:collapse;margin-top:20px;}
+.fin-table th{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);padding:10px 14px;text-align:left;border-bottom:1px solid var(--hr);}
+.fin-table td{font-size:13px;color:var(--g2);padding:13px 14px;border-bottom:1px solid var(--hr);}
+.fin-table tr:last-child td{border:none;}
+.fin-table .highlight-row td{background:rgba(196,164,74,.06);color:var(--white);font-weight:600;}
+.fin-table .gold-val{color:var(--gold);font-weight:600;}
+.fin-table .red-val{color:#f87171;}
+
+/* WATERFALL */
+.waterfall{display:flex;flex-direction:column;gap:2px;margin-top:24px;}
+.wfall{background:var(--card);border:1px solid var(--hr);padding:18px 20px;display:grid;grid-template-columns:32px 1fr auto;gap:16px;align-items:start;}
+.wfall-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--gold);opacity:.4;line-height:1;}
+.wfall-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.wfall-desc{font-size:12px;color:var(--g1);line-height:1.6;}
+.wfall-badge{font-size:10px;font-weight:600;padding:4px 10px;background:var(--gold-dim);color:var(--gold);white-space:nowrap;height:fit-content;}
+
+/* PIP */
+.pip-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:20px;}
+.pip-item{background:var(--card);border:1px solid var(--hr);padding:18px 16px;}
+.pip-area{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pip-cost{font-size:12px;color:var(--g1);margin-bottom:10px;}
+.pip-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.pip-list li{font-size:12px;color:var(--g2);display:flex;gap:8px;}
+.pip-list li::before{content:'–';color:var(--gold);}
+
+/* SIDEBAR */
+.sidebar-card{background:var(--card);border:1px solid var(--gold-br);padding:28px 24px;margin-bottom:2px;}
+.sidebar-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--white);font-style:italic;margin-bottom:20px;}
+.deal-detail-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--hr);gap:12px;}
+.deal-detail-row:last-child{border:none;}
+.ddl{font-size:11px;color:var(--g1);text-transform:uppercase;letter-spacing:.08em;}
+.ddv{font-size:13px;color:var(--white);font-weight:500;text-align:right;}
+.ddv-gold{color:var(--gold);font-weight:600;}
+
+.apply-btn{display:block;width:100%;text-align:center;background:var(--gold);color:var(--black);padding:14px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s;border:none;cursor:pointer;}
+.apply-btn:hover{background:var(--gold-lt);}
+.sidebar-disc{font-size:11px;color:var(--g1);line-height:1.65;margin-top:16px;}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:2px;margin-top:20px;}
+.step{background:var(--card);border:1px solid var(--hr);padding:18px 20px;display:flex;gap:18px;align-items:flex-start;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);opacity:.4;line-height:1;min-width:28px;}
+.step-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.step-body{font-size:12px;color:var(--g1);line-height:1.65;}
+
+/* DISCLAIMER */
+.deal-disc{background:var(--dark);border:1px solid var(--hr);padding:24px;font-size:11px;color:#555;line-height:1.7;margin-top:40px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:14px 20px;}
+  .nav-r li:not(:last-child){display:none;}
+  .deal-hero{padding:120px 20px 48px;}
+  .deal-body{grid-template-columns:1fr;padding:48px 20px;gap:36px;}
+  .deal-sidebar{position:static;}
+  .highlights,.drivers,.pip-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:2px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="astera-hospitality-group.html" class="logo">ASTERA <b>HOSPITALITY GROUP</b></a>
+  <ul class="nav-r">
+    <li><a href="astera-hospitality-group.html">← Main Site</a></li>
+    <li><a href="astera-hospitality-group.html#contact" class="nbtn">Apply to Invest</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="deal-hero">
+  <div class="hero-inner">
+    <div class="deal-flag">
+      <span>Current Opportunity</span>
+      <span class="deal-status">Accepting Soft Commits</span>
+    </div>
+    <h1>DoubleTree by Hilton<br><i>Harrisonburg, Virginia</i></h1>
+    <div class="deal-sub">143-Room Full-Service Hotel · Value-Add Acquisition · University & Healthcare Market</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">$8.5M</div><div class="hstat-l">Target Offer</div></div>
+      <div class="hstat"><div class="hstat-n">8%</div><div class="hstat-l">Preferred Return</div></div>
+      <div class="hstat"><div class="hstat-n">70/30</div><div class="hstat-l">Profit Split</div></div>
+      <div class="hstat"><div class="hstat-n">5–7 Yrs</div><div class="hstat-l">Hold Period</div></div>
+      <div class="hstat"><div class="hstat-n">$50K</div><div class="hstat-l">Min. Investment</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="deal-body">
+
+  <!-- MAIN CONTENT -->
+  <div class="deal-main">
+
+    <!-- OVERVIEW -->
+    <div class="sec-label">Deal Overview</div>
+    <h2 class="sec-h">A Hilton-Branded Hotel in One of Virginia's Most <i>Recession-Resistant</i> Markets</h2>
+    <p class="sec-p">Astera Hospitality Group is acquiring the DoubleTree by Hilton Harrisonburg — a 143-room, full-service hotel located at 1400 East Market Street in Harrisonburg, Virginia. This is a value-add acquisition anchored by two of the most stable demand drivers in hospitality: a 22,500-student university and a major regional healthcare system.</p>
+    <p class="sec-p">We are acquiring this asset below replacement cost, completing the Hilton-approved PIP, and self-operating from day one — eliminating third-party management overhead. Our underwriting targets a stabilized NOI of $1.3–1.5M by Year 3, generating strong quarterly distributions and meaningful equity appreciation for our investors.</p>
+
+    <!-- HIGHLIGHTS -->
+    <div class="highlights">
+      <div class="hl">
+        <div class="hl-icon">🏛️</div>
+        <div class="hl-title">Hilton Brand — Global Distribution</div>
+        <div class="hl-body">The DoubleTree flag provides built-in demand through Hilton Honors (190M+ members), the global reservations system, and brand recognition. We retain the flag through acquisition.</div>
+      </div>
+      <div class="hl">
+        <div class="hl-icon">🎓</div>
+        <div class="hl-title">University Anchor Demand</div>
+        <div class="hl-body">James Madison University (22,500 students) drives consistent year-round room nights — orientation, graduations, athletics, parents weekends. University markets are among the most recession-resistant in hospitality.</div>
+      </div>
+      <div class="hl">
+        <div class="hl-icon">🏥</div>
+        <div class="hl-title">Healthcare System Demand</div>
+        <div class="hl-body">Sentara Health — one of the largest healthcare systems in the U.S. — anchors corporate travel demand. Healthcare travel is non-discretionary and holds up in economic downturns.</div>
+      </div>
+      <div class="hl">
+        <div class="hl-icon">📦</div>
+        <div class="hl-title">Zero New Supply</div>
+        <div class="hl-body">CoStar confirms zero hotel properties under construction in the Harrisonburg submarket as of July 2026. No new competition entering the market protects our ADR and occupancy recovery.</div>
+      </div>
+      <div class="hl">
+        <div class="hl-icon">⚙️</div>
+        <div class="hl-title">Self-Operated from Day One</div>
+        <div class="hl-body">Astera self-manages every asset we own. Eliminating third-party management overhead of 3–5% of gross revenue directly improves NOI and LP distributions.</div>
+      </div>
+      <div class="hl">
+        <div class="hl-icon">💰</div>
+        <div class="hl-title">Significant Tax Advantages</div>
+        <div class="hl-body">Cost segregation on the $2.5M PIP renovation generates substantial Year 1 paper losses — potentially $40,000+ per $100K invested — available to offset passive income on your tax return.</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- MARKET -->
+    <div class="sec-label">Market Overview</div>
+    <h2 class="sec-h">Harrisonburg, Virginia — <i>Demand Doesn't Stop</i></h2>
+    <p class="sec-p">Harrisonburg sits in Virginia's Shenandoah Valley, less than 2 hours from Washington DC and Richmond. The market is anchored by institutional demand — not leisure travelers who disappear in a downturn.</p>
+
+    <div class="drivers">
+      <div class="driver">
+        <div class="driver-title">🎓 James Madison University</div>
+        <div class="driver-body">22,500+ students. Consistent demand year-round from move-in, orientation, homecoming, athletics, graduation, and faculty travel. University markets have historically outperformed other hotel markets during recessions.</div>
+      </div>
+      <div class="driver">
+        <div class="driver-title">🏥 Sentara Health System</div>
+        <div class="driver-body">Major healthcare system with 12 Virginia hospitals. Sentara RMH Medical Center serves Harrisonburg — generating steady, non-discretionary corporate travel demand from healthcare professionals, vendors, and administration.</div>
+      </div>
+      <div class="driver">
+        <div class="driver-title">🛣️ I-81 Corridor</div>
+        <div class="driver-body">Directly off Interstate 81 with excellent visibility and accessibility. Positioned at the crossroads of regional business travel, drive-through leisure, and university-anchored demand on one of Virginia's most trafficked interstates.</div>
+      </div>
+      <div class="driver">
+        <div class="driver-title">🏔️ Shenandoah Valley Tourism</div>
+        <div class="driver-body">Proximity to Shenandoah National Park, Skyline Drive, and multiple outdoor recreation areas drives meaningful leisure demand — adding a third demand segment beyond university and healthcare.</div>
+      </div>
+    </div>
+
+    <!-- COSTAR CALLOUT -->
+    <div style="background:var(--card);border-left:3px solid var(--gold);padding:24px 22px;margin-top:28px;">
+      <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">CoStar Market Data — July 2026</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex-wrap:wrap;">
+        <div><div style="font-size:22px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;">58.5%</div><div style="font-size:10px;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;">12-Mo Occupancy</div></div>
+        <div><div style="font-size:22px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;">$112</div><div style="font-size:10px;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;">12-Mo ADR</div></div>
+        <div><div style="font-size:22px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;">+9.4%</div><div style="font-size:10px;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;">RevPAR Growth YOY</div></div>
+        <div><div style="font-size:22px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;">0</div><div style="font-size:10px;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;">Under Construction</div></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- FINANCIALS -->
+    <div class="sec-label">Financial Performance</div>
+    <h2 class="sec-h">Historical P&L — <i>Operational Upside</i></h2>
+    <p class="sec-p">The current operator has declined significantly over the past three years — NOI has fallen 35% from its 2023 peak. This is an operator problem, not a market problem. The market is growing. We are buying an operations issue we know how to fix.</p>
+
+    <table class="fin-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th>2025</th>
+          <th>T-12 May '26</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Occupancy</td><td>66.0%</td><td>66.3%</td><td>64.2%</td><td class="red-val">63.4%</td></tr>
+        <tr><td>ADR</td><td>$138.60</td><td>$130.11</td><td>$129.17</td><td class="red-val">$130.80</td></tr>
+        <tr><td>RevPAR</td><td>$91.41</td><td>$86.23</td><td>$82.96</td><td class="red-val">$82.93</td></tr>
+        <tr><td>Total Revenue</td><td>$5,390,027</td><td>$5,114,263</td><td>$4,876,609</td><td>$4,834,312</td></tr>
+        <tr class="highlight-row"><td>NOI</td><td>$1,510,579</td><td>$1,165,797</td><td>$1,005,291</td><td class="red-val">$979,748</td></tr>
+        <tr><td>NOI Margin</td><td>28.0%</td><td>22.8%</td><td>20.6%</td><td class="red-val">20.3%</td></tr>
+      </tbody>
+    </table>
+
+    <div style="background:rgba(196,164,74,.06);border:1px solid var(--gold-br);padding:16px 18px;margin-top:16px;font-size:13px;color:var(--g2);line-height:1.7;">
+      <strong style="color:var(--gold);">Our thesis:</strong> The market ADR for upscale properties in Harrisonburg is $135.85 (CoStar, 2026) — the DoubleTree is running $130.80. Post-renovation, a Hilton-approved asset should be at or above market. We project ADR recovery to $145+ by Year 3 as the PIP is completed and we implement active revenue management.
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- DEAL STRUCTURE -->
+    <div class="sec-label">Deal Structure</div>
+    <h2 class="sec-h">How Your Capital Gets <i>Deployed</i></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:28px;">
+      <div style="background:var(--card);border:1px solid var(--hr);padding:22px 20px;">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);margin-bottom:16px;">Sources</div>
+        <div class="deal-detail-row"><span class="ddl">SBA 504 — Senior Debt</span><span class="ddv-gold">$4,250,000</span></div>
+        <div class="deal-detail-row"><span class="ddl">Bank Loan</span><span class="ddv">$1,700,000</span></div>
+        <div class="deal-detail-row"><span class="ddl">LP Investor Equity</span><span class="ddv">$1,700,000</span></div>
+        <div class="deal-detail-row"><span class="ddl">GP Co-Investment (Astera)</span><span class="ddv">$850,000</span></div>
+        <div class="deal-detail-row" style="border-top:1px solid var(--gold-br);padding-top:14px;"><span class="ddl" style="color:var(--white);font-weight:600;">Total Capitalization</span><span class="ddv-gold" style="font-size:15px;">$8,500,000</span></div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--hr);padding:22px 20px;">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);margin-bottom:16px;">Uses</div>
+        <div class="deal-detail-row"><span class="ddl">Acquisition Price</span><span class="ddv-gold">$8,500,000</span></div>
+        <div class="deal-detail-row"><span class="ddl">PIP / Renovation</span><span class="ddv">$2,500,000</span></div>
+        <div class="deal-detail-row"><span class="ddl">Closing Costs</span><span class="ddv">$220,000</span></div>
+        <div class="deal-detail-row"><span class="ddl">Working Capital Reserve</span><span class="ddv">$300,000</span></div>
+        <div class="deal-detail-row" style="border-top:1px solid var(--gold-br);padding-top:14px;"><span class="ddl" style="color:var(--white);font-weight:600;">Total All-In Basis</span><span class="ddv-gold" style="font-size:15px;">$11,520,000</span></div>
+      </div>
+    </div>
+
+    <!-- WATERFALL -->
+    <div class="sec-label" style="margin-top:32px;">Distribution Waterfall</div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--white);margin-bottom:16px;">How Profits Are <i>Distributed</i></h3>
+    <div class="waterfall">
+      <div class="wfall">
+        <div class="wfall-num">1</div>
+        <div><div class="wfall-title">Return of Capital</div><div class="wfall-desc">LP investors receive their full capital contribution back before any profit sharing begins.</div></div>
+        <div class="wfall-badge">100% LP</div>
+      </div>
+      <div class="wfall">
+        <div class="wfall-num">2</div>
+        <div><div class="wfall-title">Cumulative Preferred Return — 8% Annually</div><div class="wfall-desc">LP investors receive 8% per year on invested capital, paid quarterly. Unpaid amounts accrue and must be paid in full before any GP distributions.</div></div>
+        <div class="wfall-badge">8% / Year</div>
+      </div>
+      <div class="wfall">
+        <div class="wfall-num">3</div>
+        <div><div class="wfall-title">Profit Split — Above Preferred Return</div><div class="wfall-desc">Remaining distributable cash after the preferred return is paid splits 70% to LP investors and 30% to Astera as the General Partner.</div></div>
+        <div class="wfall-badge">70% LP / 30% GP</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- PIP -->
+    <div class="sec-label">Property Improvement Plan</div>
+    <h2 class="sec-h">Hilton-Approved PIP — <i>Full Renovation</i></h2>
+    <p class="sec-p">Hilton completed their inspection on March 31, 2026 and issued the approved PIP (PIP-011801) dated April 8, 2026. We will complete all required renovations within 18 months of closing — resulting in a fully repositioned, renovation-complete DoubleTree in a growing market.</p>
+
+    <div class="pip-grid">
+      <div class="pip-item">
+        <div class="pip-area">Guestrooms</div>
+        <div class="pip-cost">Est. $1,144,000</div>
+        <ul class="pip-list">
+          <li>New carpet throughout all 143 rooms</li>
+          <li>Remove textured ceilings — smooth finish</li>
+          <li>New mattresses and box springs</li>
+          <li>Replace all TVs (Connected Room compatible)</li>
+          <li>New top-of-bed product</li>
+        </ul>
+      </div>
+      <div class="pip-item">
+        <div class="pip-area">Guest Bathrooms</div>
+        <div class="pip-cost">Est. $500,500</div>
+        <ul class="pip-list">
+          <li>Refinish discolored grout on floor tiles</li>
+          <li>Replace vinyl wallcovering</li>
+          <li>New backlit mirrors throughout</li>
+          <li>Replace damaged shower pans</li>
+          <li>New artwork in all bathrooms</li>
+        </ul>
+      </div>
+      <div class="pip-item">
+        <div class="pip-area">MEP / Systems</div>
+        <div class="pip-cost">Est. $425,000</div>
+        <ul class="pip-list">
+          <li>Remove PTAC units — West wing corridors</li>
+          <li>Install 100% Make-up Air ventilation system</li>
+          <li>CO detectors in laundry and boiler rooms</li>
+          <li>LED lighting replacement throughout</li>
+        </ul>
+      </div>
+      <div class="pip-item">
+        <div class="pip-area">Technology & Signage</div>
+        <div class="pip-cost">Est. $155,000</div>
+        <ul class="pip-list">
+          <li>Connected Room edge controller at every TV</li>
+          <li>Full LED signage replacement</li>
+          <li>New guestroom number sign package</li>
+          <li>Fire/life safety upgrades</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--gold-br);padding:16px 20px;margin-top:2px;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:13px;font-weight:600;color:var(--white);">Total Estimated PIP Investment</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--gold);">~$2,500,000</span>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- HOW TO INVEST -->
+    <div class="sec-label">How to Invest</div>
+    <h2 class="sec-h">Four Steps to <i>Get Started</i></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Submit Your Interest</div><div class="step-body">Complete the investor interest form on this page or email us at invest@asterahg.com. Our team will be in touch within 48 hours to discuss the opportunity and confirm your accredited investor status.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Sign the NDA & Review Full Materials</div><div class="step-body">After confirming your accredited status, you'll sign a mutual NDA and receive access to the full underwriting package — complete financials, STR data, PIP details, and pro forma projections.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Review the PPM with Your Advisor</div><div class="step-body">Our securities attorney-drafted Private Placement Memorandum outlines all material details of the investment. We encourage you to review it with your own CPA or attorney before committing.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div><div class="step-title">Execute Subscription Agreement & Wire</div><div class="step-body">Once you're ready, you'll sign the Subscription Agreement and wire your investment. You'll receive portal access immediately for tracking, documents, and updates.</div></div>
+      </div>
+    </div>
+
+    <div class="deal-disc">
+      This page is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. This investment opportunity is available exclusively to verified accredited investors as defined under Rule 501 of Regulation D of the Securities Act of 1933. Past performance is not indicative of future results. Projected returns are targets only and are not guaranteed. Investing in private placements involves significant risk including potential loss of principal. Astera Hospitality Group LLC is not registered with the U.S. Securities and Exchange Commission. Any offering will be made pursuant to a Private Placement Memorandum and related subscription documents.
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="deal-sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Deal at a Glance</div>
+      <div class="deal-detail-row"><span class="ddl">Property</span><span class="ddv">DoubleTree by Hilton</span></div>
+      <div class="deal-detail-row"><span class="ddl">Location</span><span class="ddv">Harrisonburg, VA</span></div>
+      <div class="deal-detail-row"><span class="ddl">Rooms</span><span class="ddv">143 Guestrooms</span></div>
+      <div class="deal-detail-row"><span class="ddl">Flag</span><span class="ddv">Hilton</span></div>
+      <div class="deal-detail-row"><span class="ddl">Target Offer</span><span class="ddv-gold">$8,500,000</span></div>
+      <div class="deal-detail-row"><span class="ddl">Preferred Return</span><span class="ddv-gold">8% Cumulative</span></div>
+      <div class="deal-detail-row"><span class="ddl">Profit Split</span><span class="ddv">70% LP / 30% GP</span></div>
+      <div class="deal-detail-row"><span class="ddl">Min. Investment</span><span class="ddv-gold">$50,000</span></div>
+      <div class="deal-detail-row"><span class="ddl">Hold Period</span><span class="ddv">5–7 Years</span></div>
+      <div class="deal-detail-row"><span class="ddl">Distributions</span><span class="ddv">Quarterly</span></div>
+      <div class="deal-detail-row"><span class="ddl">Structure</span><span class="ddv">Reg D, Rule 506(b)</span></div>
+      <div class="deal-detail-row"><span class="ddl">Status</span><span class="ddv" style="color:var(--green);">Soft Commits Open</span></div>
+    </div>
+
+    <div class="sidebar-card" style="margin-top:2px;">
+      <div class="sidebar-title">5-Year Projected Returns</div>
+      <div class="deal-detail-row"><span class="ddl">Year 1 NOI</span><span class="ddv-gold">$980,000</span></div>
+      <div class="deal-detail-row"><span class="ddl">Year 3 NOI (Target)</span><span class="ddv-gold">$1,380,000</span></div>
+      <div class="deal-detail-row"><span class="ddl">Year 5 NOI (Target)</span><span class="ddv-gold">$1,560,000</span></div>
+      <div class="deal-detail-row"><span class="ddl">Exit Value (8.5% cap)</span><span class="ddv-gold">~$18.4M</span></div>
+      <div class="deal-detail-row"><span class="ddl">Target IRR</span><span class="ddv-gold">15–20%</span></div>
+      <div class="deal-detail-row"><span class="ddl">On $100K Invested</span><span class="ddv-gold">~$40,000+ return</span></div>
+      <p style="font-size:11px;color:var(--g1);margin-top:14px;line-height:1.6;">Projections are targets only and not guaranteed. Based on $8.5M acquisition, $2.5M PIP complete Year 1, self-operated by Astera.</p>
+    </div>
+
+    <div style="margin-top:2px;">
+      <a href="astera-hospitality-group.html#contact" class="apply-btn">Apply to Invest</a>
+      <p class="sidebar-disc">This is not an offer to sell securities. Available to verified accredited investors only under Reg D Rule 506(b). Full details in the PPM.</p>
+      <div style="margin-top:20px;text-align:center;">
+        <a href="mailto:invest@asterahg.com" style="font-size:13px;color:var(--gold);text-decoration:none;">invest@asterahg.com</a>
+        <div style="font-size:11px;color:var(--g1);margin-top:4px;">Response within 48 hours</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
