@@ -1052,7 +1052,7 @@ async function submitForm(e){
   btn.disabled=true;
 
   try {
-    const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID', {
+    const res = await fetch('https://formspree.io/f/xlgqlzjp', {
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body: JSON.stringify({
@@ -1080,15 +1080,11 @@ async function submitForm(e){
       throw new Error('Form submission failed');
     }
   } catch(err){
-    // Fallback to mailto if Formspree not set up yet
-    const sub=encodeURIComponent('Investor Application — Astera Hospitality Group');
-    const body=encodeURIComponent('Name: '+fn+' '+ln+'\nEmail: '+em+'\nPhone: '+(document.getElementById('ph').value||'N/A')+'\nProfession: '+(document.getElementById('pr').value||'N/A')+'\nInvestable Capital: '+cap+'\nAccredited: '+acc+'\nMessage: '+(document.getElementById('msg').value||'None'));
-    window.open('mailto:invest@asterahg.com?subject='+sub+'&body='+body);
     msg.style.display='block';
     msg.style.background='rgba(74,222,128,.08)';
     msg.style.border='1px solid rgba(74,222,128,.25)';
     msg.style.color='#4ade80';
-    msg.textContent='✓ Thank you! Your email client will open to send your application.';
+    msg.innerHTML='✓ Thank you! Please email us directly at <a href="mailto:invest@asterahg.com" style="color:var(--gold)">invest@asterahg.com</a> and we will be in touch within 48 hours.';
     btn.textContent='Submit Application';
     btn.disabled=false;
   }

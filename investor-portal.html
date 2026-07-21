@@ -10,137 +10,209 @@
 :root{
   --black:#080808;--dark:#111;--card:#161616;--card2:#1b1b1b;
   --gold:#C4A44A;--gold-lt:#DCC06E;--gold-dim:rgba(196,164,74,.11);--gold-br:rgba(196,164,74,.22);
-  --white:#F7F5F1;--g1:#999;--g2:#C4C0B8;--hr:rgba(255,255,255,.06);
+  --white:#F7F5F1;--g1:#888;--g2:#C4C0B8;--hr:rgba(255,255,255,.07);
   --green:#4ade80;--red:#f87171;--blue:#60a5fa;
 }
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;background:rgba(8,8,8,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--gold-br)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--white);text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gold-br)}
+@media(min-width:768px){nav{padding:16px 48px}}
+.logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--white);text-decoration:none}
 .logo b{color:var(--gold);font-weight:400}
-.nav-r{display:flex;align-items:center;gap:20px}
-.nav-r a{color:var(--g1);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
-.nav-r a:hover{color:var(--gold)}
-.nbtn{background:var(--gold)!important;color:var(--black)!important;padding:8px 20px;font-weight:600!important;transition:background .2s!important}
-.nbtn:hover{background:var(--gold-lt)!important}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-user{font-size:12px;color:var(--g1);display:none}
+@media(min-width:600px){.nav-user{display:block}}
+.nav-badge{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--hr);color:var(--g1)}
+.logout-btn{font-size:11px;color:var(--g1);cursor:pointer;background:none;border:1px solid var(--hr);padding:7px 14px;transition:all .2s;font-family:'Inter',sans-serif}
+.logout-btn:hover{border-color:var(--red);color:var(--red)}
 
-/* LOGIN SCREEN */
-#loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:120px 20px 60px;}
-.login-box{background:var(--card);border:1px solid var(--gold-br);padding:52px 48px;width:100%;max-width:440px;}
-.login-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-bottom:6px;}
+/* LOGIN */
+#loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:80px 20px 40px}
+.login-box{background:var(--card);border:1px solid var(--gold-br);padding:40px 28px;width:100%;max-width:400px}
+@media(min-width:480px){.login-box{padding:48px 40px}}
+.login-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
 .login-logo b{color:var(--gold);font-weight:400}
-.login-sub{font-size:12px;color:var(--g1);margin-bottom:36px;letter-spacing:.04em;}
-.field-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:6px;}
-.field-input{width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--white);padding:13px 16px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;margin-bottom:16px;}
-.field-input:focus{border-color:var(--gold);}
-.field-input::placeholder{color:#444;}
-.login-btn{width:100%;background:var(--gold);color:var(--black);padding:14px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;margin-top:4px;}
-.login-btn:hover{background:var(--gold-lt);}
-.login-err{display:none;font-size:12px;color:var(--red);margin-top:12px;text-align:center;}
-.login-disc{font-size:11px;color:var(--g1);line-height:1.65;margin-top:24px;padding-top:24px;border-top:1px solid var(--hr);}
-.back-link{display:block;text-align:center;margin-top:20px;font-size:12px;color:var(--g1);text-decoration:none;transition:color .2s;}
-.back-link:hover{color:var(--gold);}
+.login-sub{font-size:12px;color:var(--g1);margin-bottom:32px}
+.field-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:6px}
+.field-input{width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--white);padding:13px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;margin-bottom:14px;border-radius:0;-webkit-appearance:none}
+.field-input:focus{border-color:var(--gold)}
+.field-input::placeholder{color:#333}
+.login-btn{width:100%;background:var(--gold);color:var(--black);padding:14px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;margin-top:4px;transition:background .2s}
+.login-btn:hover{background:var(--gold-lt)}
+.login-err{display:none;font-size:12px;color:var(--red);margin-top:12px;text-align:center;padding:10px;background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2)}
+.login-disc{font-size:11px;color:var(--g1);line-height:1.65;margin-top:24px;padding-top:20px;border-top:1px solid var(--hr)}
+.login-type-toggle{display:flex;gap:2px;margin-bottom:24px}
+.toggle-btn{flex:1;padding:10px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--hr);background:none;color:var(--g1);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+.toggle-btn.active{background:var(--gold-dim);border-color:var(--gold-br);color:var(--gold)}
 
 /* DASHBOARD */
-#dashboard{display:none;padding:100px 52px 60px;}
-.dash-inner{max-width:1140px;margin:0 auto;}
-.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;padding-bottom:28px;border-bottom:1px solid var(--hr);}
-.dash-welcome{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--white);}
-.dash-welcome span{color:var(--gold);font-style:italic;}
-.logout-btn{font-size:11px;color:var(--g1);cursor:pointer;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--hr);padding:8px 16px;transition:all .2s;}
-.logout-btn:hover{border-color:var(--gold);color:var(--gold);}
+#dashboard{display:none;padding:80px 16px 60px}
+@media(min-width:768px){#dashboard{padding:90px 48px 60px}}
+.dash-inner{max-width:1100px;margin:0 auto}
+.dash-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--hr);flex-wrap:wrap;gap:16px}
+.dash-welcome{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,32px);font-weight:300;color:var(--white)}
+.dash-welcome span{color:var(--gold);font-style:italic}
 
 /* STAT CARDS */
-.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:32px;}
-.scard{background:var(--card);border:1px solid var(--hr);padding:24px 22px;}
-.scard-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:6px;}
-.scard-l{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);}
-.scard-sub{font-size:12px;color:var(--green);margin-top:4px;}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:24px}
+@media(min-width:600px){.stat-row{grid-template-columns:repeat(4,1fr)}}
+.scard{background:var(--card);border:1px solid var(--hr);padding:20px 16px}
+@media(min-width:768px){.scard{padding:24px 20px}}
+.scard-n{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,38px);font-weight:300;color:var(--gold);line-height:1;margin-bottom:6px}
+.scard-l{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--g1)}
+.scard-sub{font-size:11px;color:var(--green);margin-top:4px}
 
 /* TABS */
-.tabs{display:flex;gap:0;margin-bottom:28px;border-bottom:1px solid var(--hr);}
-.tab{padding:12px 24px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;}
-.tab.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab:hover{color:var(--white);}
-.tab-content{display:none;}
-.tab-content.active{display:block;}
+.tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid var(--hr);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab{padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g1);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap;font-family:'Inter',sans-serif}
+@media(min-width:600px){.tab{padding:12px 22px;font-size:12px}}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab:hover{color:var(--white)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* SECTION HEADERS */
+.sec-head{margin-bottom:20px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,28px);font-weight:300;color:var(--white);margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--g1);line-height:1.6}
+
+/* DEAL ROOM */
+.deal-room-card{background:var(--card);border:1px solid var(--gold-br);border-radius:0;overflow:hidden;margin-bottom:2px}
+.deal-room-header{padding:24px;border-bottom:1px solid var(--hr);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.deal-room-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);font-weight:400;color:var(--white);margin-bottom:4px}
+.deal-room-sub{font-size:12px;color:var(--g1)}
+.deal-status-badge{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;background:rgba(74,222,128,.12);color:var(--green);white-space:nowrap}
+.deal-room-body{padding:24px}
+.deal-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:20px}
+@media(min-width:600px){.deal-metrics{grid-template-columns:repeat(4,1fr)}}
+.dm{background:var(--card2);padding:14px 12px}
+.dm-n{font-size:18px;font-weight:600;color:var(--gold);font-family:'Cormorant Garamond',serif;margin-bottom:3px}
+.dm-l{font-size:10px;color:var(--g1);text-transform:uppercase;letter-spacing:.08em}
+.deal-desc{font-size:13px;color:var(--g2);line-height:1.75;margin-bottom:20px}
+.deal-highlights{display:grid;grid-template-columns:1fr;gap:2px;margin-bottom:20px}
+@media(min-width:600px){.deal-highlights{grid-template-columns:1fr 1fr}}
+.hl-item{background:var(--card2);padding:14px 14px;display:flex;gap:12px;align-items:flex-start}
+.hl-icon{color:var(--gold);font-size:14px;margin-top:1px;flex-shrink:0}
+.hl-text{font-size:13px;color:var(--g2);line-height:1.6}
+.hl-text b{color:var(--white);font-weight:600;display:block;margin-bottom:2px}
+
+/* COMMIT FORM */
+.commit-box{background:var(--dark);border:1px solid var(--gold-br);padding:24px;margin-top:2px}
+.commit-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--white);margin-bottom:6px;font-style:italic}
+.commit-sub{font-size:13px;color:var(--g1);margin-bottom:20px}
+.amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:16px}
+@media(min-width:480px){.amount-grid{grid-template-columns:repeat(6,1fr)}}
+.amount-btn{padding:10px 4px;font-size:12px;font-weight:600;color:var(--g1);background:var(--card);border:1px solid var(--hr);cursor:pointer;text-align:center;transition:all .2s;font-family:'Inter',sans-serif}
+.amount-btn:hover,.amount-btn.selected{background:var(--gold-dim);border-color:var(--gold-br);color:var(--gold)}
+.custom-amount{width:100%;background:var(--card);border:1px solid var(--hr);color:var(--white);padding:13px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;border-radius:0;margin-bottom:14px}
+.custom-amount:focus{border-color:var(--gold)}
+.commit-btn{width:100%;background:var(--gold);color:var(--black);padding:14px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+.commit-btn:hover{background:var(--gold-lt)}
+.commit-msg{display:none;padding:12px 14px;font-size:13px;text-align:center;margin-top:10px}
+.commit-disc{font-size:11px;color:var(--g1);line-height:1.65;margin-top:14px}
 
 /* TABLE */
-.data-table{width:100%;border-collapse:collapse;}
-.data-table th{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);padding:10px 16px;text-align:left;border-bottom:1px solid var(--hr);}
-.data-table td{font-size:13px;color:var(--g2);padding:14px 16px;border-bottom:1px solid var(--hr);}
-.data-table tr:last-child td{border-bottom:none;}
-.data-table tr:hover td{background:rgba(255,255,255,.02);}
-.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;}
-.badge-green{background:rgba(74,222,128,.1);color:var(--green);}
-.badge-gold{background:var(--gold-dim);color:var(--gold);}
-.badge-blue{background:rgba(96,165,250,.1);color:var(--blue);}
+.data-table{width:100%;border-collapse:collapse;min-width:500px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.data-table th{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);padding:10px 14px;text-align:left;border-bottom:1px solid var(--hr);white-space:nowrap}
+.data-table td{font-size:13px;color:var(--g2);padding:14px;border-bottom:1px solid var(--hr)}
+.data-table tr:last-child td{border:none}
+.data-table tr:hover td{background:rgba(255,255,255,.02)}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px}
+.badge-green{background:rgba(74,222,128,.1);color:var(--green)}
+.badge-gold{background:var(--gold-dim);color:var(--gold)}
+.badge-blue{background:rgba(96,165,250,.1);color:var(--blue)}
+.badge-gray{background:rgba(255,255,255,.05);color:var(--g1)}
 
 /* DOCS */
-.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.doc-card{background:var(--card);border:1px solid var(--hr);padding:24px 22px;transition:border-color .2s;cursor:pointer;}
-.doc-card:hover{border-color:var(--gold-br);}
-.doc-icon{font-size:28px;margin-bottom:14px;}
-.doc-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;}
-.doc-meta{font-size:11px;color:var(--g1);}
-.doc-btn{display:inline-block;margin-top:14px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--gold-br);padding:5px 12px;transition:all .2s;}
-.doc-btn:hover{background:var(--gold-dim);}
-
-/* DEAL CARD */
-.deal-card{background:var(--card);border:1px solid var(--hr);padding:28px;margin-bottom:2px;}
-.deal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-.deal-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);}
-.deal-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:20px;}
-.ds{background:var(--card2);padding:16px 14px;}
-.ds-n{font-size:18px;font-weight:600;color:var(--white);margin-bottom:3px;}
-.ds-l{font-size:10px;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;}
+.doc-grid{display:grid;grid-template-columns:1fr;gap:2px}
+@media(min-width:600px){.doc-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.doc-grid{grid-template-columns:repeat(3,1fr)}}
+.doc-card{background:var(--card);border:1px solid var(--hr);padding:20px;transition:border-color .2s;cursor:pointer}
+.doc-card:hover{border-color:var(--gold-br)}
+.doc-icon{font-size:26px;margin-bottom:12px}
+.doc-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.doc-meta{font-size:11px;color:var(--g1);margin-bottom:12px}
+.doc-btn{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-br);padding:5px 12px;transition:all .2s;text-decoration:none;font-family:'Inter',sans-serif}
+.doc-btn:hover{background:var(--gold-dim)}
+.doc-section-title{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g1);margin:24px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--hr)}
 
 /* MESSAGES */
-.msg-card{background:var(--card);border:1px solid var(--hr);padding:20px 22px;margin-bottom:2px;}
-.msg-from{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;}
-.msg-date{font-size:11px;color:var(--g1);margin-bottom:10px;}
-.msg-body{font-size:13px;color:var(--g2);line-height:1.65;}
+.msg-card{background:var(--card);border:1px solid var(--hr);padding:20px;margin-bottom:2px}
+.msg-from{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.msg-date{font-size:11px;color:var(--g1);margin-bottom:12px}
+.msg-body{font-size:13px;color:var(--g2);line-height:1.75}
 
-/* CHART */
-.chart-wrap{background:var(--card);border:1px solid var(--hr);padding:28px;margin-bottom:28px;}
-.chart-title{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:20px;}
-.bar-chart{display:flex;align-items:flex-end;gap:12px;height:120px;}
-.bar-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;}
-.bar{width:100%;background:var(--gold-dim);border-top:2px solid var(--gold);border-radius:0;transition:background .2s;}
-.bar:hover{background:rgba(196,164,74,.22);}
-.bar-lbl{font-size:10px;color:var(--g1);white-space:nowrap;}
-.bar-val{font-size:11px;color:var(--gold);font-weight:600;}
+/* DISTRIBUTION CHART */
+.chart-wrap{background:var(--card);border:1px solid var(--hr);padding:24px;margin-bottom:20px}
+.chart-title{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:20px}
+.bar-chart{display:flex;align-items:flex-end;gap:8px;height:100px}
+@media(min-width:600px){.bar-chart{gap:14px}}
+.bar-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+.bar{width:100%;background:var(--gold-dim);border-top:2px solid var(--gold);transition:background .2s}
+.bar:hover{background:rgba(196,164,74,.22)}
+.bar.future{background:rgba(255,255,255,.04);border-top-color:#333}
+.bar-lbl{font-size:10px;color:var(--g1);white-space:nowrap}
+.bar-val{font-size:11px;color:var(--gold);font-weight:600}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{padding:14px 20px;}
-  .nav-r .hide-mob{display:none;}
-  #dashboard{padding:90px 20px 40px;}
-  .stat-row{grid-template-columns:1fr 1fr;}
-  .doc-grid{grid-template-columns:1fr;}
-  .deal-stats{grid-template-columns:1fr 1fr;}
-  .login-box{padding:36px 28px;}
-}
+/* COMMIT TRACKER */
+.tracker-card{background:var(--card);border:1px solid var(--hr);padding:20px;margin-bottom:2px}
+.tracker-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);margin-bottom:8px}
+.progress-bar{height:8px;background:rgba(255,255,255,.06);border-radius:0;overflow:hidden;margin-bottom:6px}
+.progress-fill{height:100%;background:var(--gold);transition:width 1s ease}
+.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--g1)}
+.progress-labels b{color:var(--gold)}
+
+/* PROFILE */
+.profile-grid{display:grid;grid-template-columns:1fr;gap:2px}
+@media(min-width:768px){.profile-grid{grid-template-columns:1fr 1fr}}
+.profile-card{background:var(--card);border:1px solid var(--hr);padding:22px}
+.profile-field{padding:12px 0;border-bottom:1px solid var(--hr);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.profile-field:last-child{border:none}
+.pf-label{font-size:11px;color:var(--g1);text-transform:uppercase;letter-spacing:.08em}
+.pf-val{font-size:13px;color:var(--white);text-align:right}
+
+/* CPA PORTAL */
+.cpa-notice{background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.2);padding:16px 18px;margin-bottom:20px}
+.cpa-notice p{font-size:13px;color:var(--blue);line-height:1.65}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:48px 20px;color:var(--g1)}
+.empty-state-icon{font-size:36px;margin-bottom:14px;opacity:.4}
+.empty-state-title{font-size:15px;font-weight:600;color:var(--g2);margin-bottom:8px}
+.empty-state-body{font-size:13px;line-height:1.65}
+
+/* NOTIFICATION DOT */
+.notif{display:inline-block;width:7px;height:7px;background:var(--gold);border-radius:50%;margin-left:5px;vertical-align:middle}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="astera-hospitality-group.html" class="logo">ASTERA <b>HOSPITALITY GROUP</b></a>
-  <div class="nav-r">
-    <a href="astera-hospitality-group.html" class="hide-mob">← Back to Main Site</a>
-    <a href="#" class="nbtn" id="navPortalBtn">Investor Portal</a>
+  <a href="astera-hospitality-group.html" class="logo">ASTERA <b>HG</b></a>
+  <div class="nav-right">
+    <span class="nav-user" id="navUser"></span>
+    <span class="nav-badge" id="navBadge" style="display:none"></span>
+    <button class="logout-btn" id="logoutBtn" onclick="doLogout()" style="display:none">Log Out</button>
   </div>
 </nav>
 
-<!-- LOGIN -->
+<!-- ═══════════════════════════════════════════════
+     LOGIN SCREEN
+════════════════════════════════════════════════ -->
 <div id="loginScreen">
   <div class="login-box">
     <div class="login-logo">ASTERA <b>HG</b></div>
-    <div class="login-sub">Investor Portal — Secure Access</div>
+    <div class="login-sub">Secure Investor Portal</div>
+
+    <!-- Toggle Investor / CPA -->
+    <div class="login-type-toggle">
+      <button class="toggle-btn active" id="toggleInvestor" onclick="setLoginType('investor')">Investor Access</button>
+      <button class="toggle-btn" id="toggleCPA" onclick="setLoginType('cpa')">CPA / Advisor Access</button>
+    </div>
 
     <label class="field-label">Email Address</label>
     <input type="email" class="field-input" id="loginEmail" placeholder="your@email.com" onkeydown="if(event.key==='Enter')doLogin()">
@@ -148,187 +220,253 @@ nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;align-items:cent
     <label class="field-label">Password</label>
     <input type="password" class="field-input" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
 
-    <button class="login-btn" onclick="doLogin()">Log In to Portal</button>
-    <div class="login-err" id="loginErr">Invalid email or password. Please try again.</div>
+    <button class="login-btn" onclick="doLogin()">Access Portal</button>
+    <div class="login-err" id="loginErr">Invalid credentials. Please try again or contact invest@asterahg.com</div>
 
     <div class="login-disc">
-      This portal is restricted to verified accredited investors of Astera Hospitality Group LLC. Unauthorized access is prohibited. All portal activity is logged and monitored.
+      This portal is restricted to verified investors and authorized advisors of Astera Hospitality Group LLC. All activity is logged. Not yet an investor? <a href="astera-hospitality-group.html#contact" style="color:var(--gold);text-decoration:none;">Apply here →</a>
     </div>
-    <a href="astera-hospitality-group.html" class="back-link">← Return to Main Site</a>
-    <a href="astera-hospitality-group.html#contact" class="back-link" style="margin-top:8px;">Not yet an investor? Apply Here</a>
   </div>
 </div>
 
-<!-- DASHBOARD -->
+<!-- ═══════════════════════════════════════════════
+     INVESTOR DASHBOARD
+════════════════════════════════════════════════ -->
 <div id="dashboard">
   <div class="dash-inner">
 
-    <!-- HEADER -->
+    <!-- Header -->
     <div class="dash-header">
       <div>
-        <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Investor Portal</div>
-        <div class="dash-welcome">Welcome back, <span id="investorName">Dr. Patel</span></div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Investor Dashboard</div>
+        <div class="dash-welcome">Welcome back, <span id="investorName">Investor</span></div>
       </div>
-      <button class="logout-btn" onclick="doLogout()">Log Out</button>
-    </div>
-
-    <!-- STATS -->
-    <div class="stat-row">
-      <div class="scard">
-        <div class="scard-n">$100,000</div>
-        <div class="scard-l">Total Invested</div>
-      </div>
-      <div class="scard">
-        <div class="scard-n">$6,400</div>
-        <div class="scard-l">Distributions Received</div>
-        <div class="scard-sub">↑ $1,600 this quarter</div>
-      </div>
-      <div class="scard">
-        <div class="scard-n">8.0%</div>
-        <div class="scard-l">Annualized Return</div>
-        <div class="scard-sub">On track — preferred return</div>
-      </div>
-      <div class="scard">
-        <div class="scard-n">Q3 2026</div>
-        <div class="scard-l">Next Distribution</div>
-        <div class="scard-sub">Est. October 15, 2026</div>
+      <div style="font-size:12px;color:var(--g1);text-align:right;">
+        <div id="lastLogin" style="margin-bottom:4px;"></div>
+        <div>Astera Hospitality Group LLC</div>
       </div>
     </div>
 
-    <!-- DISTRIBUTION CHART -->
-    <div class="chart-wrap">
-      <div class="chart-title">Quarterly Distributions — 2026</div>
-      <div class="bar-chart">
-        <div class="bar-col">
-          <div class="bar-val">$1,600</div>
-          <div class="bar" style="height:40px;"></div>
-          <div class="bar-lbl">Q1 '26</div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">$1,600</div>
-          <div class="bar" style="height:40px;"></div>
-          <div class="bar-lbl">Q2 '26</div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">$1,600</div>
-          <div class="bar" style="height:40px;background:rgba(196,164,74,.22);border-top-color:var(--gold-lt);"></div>
-          <div class="bar-lbl">Q3 '26 (Est.)</div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">$1,600</div>
-          <div class="bar" style="height:40px;background:rgba(255,255,255,.04);border-top-color:#444;"></div>
-          <div class="bar-lbl">Q4 '26 (Est.)</div>
-        </div>
-      </div>
+    <!-- Stats -->
+    <div class="stat-row" id="investorStats">
+      <div class="scard"><div class="scard-n" id="statInvested">$100,000</div><div class="scard-l">Total Committed</div></div>
+      <div class="scard"><div class="scard-n" id="statDist">$6,400</div><div class="scard-l">Distributions Received</div><div class="scard-sub">↑ $1,600 this quarter</div></div>
+      <div class="scard"><div class="scard-n">8.0%</div><div class="scard-l">Annualized Return</div></div>
+      <div class="scard"><div class="scard-n">Oct 15</div><div class="scard-l">Next Distribution</div></div>
     </div>
 
-    <!-- TABS -->
-    <div class="tabs">
-      <button class="tab active" onclick="showTab('portfolio')">My Portfolio</button>
+    <!-- CPA Stats (shown instead for CPA login) -->
+    <div class="stat-row" id="cpaStats" style="display:none">
+      <div class="scard"><div class="scard-n">1</div><div class="scard-l">Active Deals</div></div>
+      <div class="scard"><div class="scard-n">2</div><div class="scard-l">Investors — Your Clients</div></div>
+      <div class="scard"><div class="scard-n">2026</div><div class="scard-l">Tax Year</div></div>
+      <div class="scard"><div class="scard-n">Mar 15</div><div class="scard-l">K-1 Deadline</div></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" id="investorTabs">
+      <button class="tab active" onclick="showTab('deals')">Deal Room <span class="notif"></span></button>
+      <button class="tab" onclick="showTab('commit')">Soft Commit</button>
       <button class="tab" onclick="showTab('distributions')">Distributions</button>
       <button class="tab" onclick="showTab('documents')">Documents</button>
       <button class="tab" onclick="showTab('updates')">Updates</button>
+      <button class="tab" onclick="showTab('profile')">My Profile</button>
     </div>
 
-    <!-- TAB: PORTFOLIO -->
-    <div class="tab-content active" id="tab-portfolio">
-      <div class="deal-card">
-        <div class="deal-header">
+    <!-- CPA Tabs -->
+    <div class="tabs" id="cpaTabs" style="display:none">
+      <button class="tab active" onclick="showTab('cpa-docs')">Tax Documents</button>
+      <button class="tab" onclick="showTab('cpa-clients')">Client Investments</button>
+    </div>
+
+    <!-- ── TAB: DEAL ROOM ── -->
+    <div class="tab-content active" id="tab-deals">
+      <div class="sec-head">
+        <div class="sec-title">Current Opportunities</div>
+        <div class="sec-sub">Active investment deals available to you as a verified accredited investor.</div>
+      </div>
+
+      <!-- Deal Card -->
+      <div class="deal-room-card">
+        <div class="deal-room-header">
           <div>
-            <div class="deal-name">DoubleTree by Hilton — Harrisonburg, VA</div>
-            <div style="font-size:12px;color:var(--g1);margin-top:4px;">143 Rooms · Value-Add Acquisition · Hold Period: 5–7 Years</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Hilton · Full-Service · Value-Add</div>
+            <div class="deal-room-title">DoubleTree by Hilton — Harrisonburg, Virginia</div>
+            <div class="deal-room-sub">143 Rooms · 1400 East Market Street · Harrisonburg, VA 22801</div>
           </div>
-          <span class="badge badge-gold">Active</span>
+          <span class="deal-status-badge">Accepting Soft Commits</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:13px;">
-          <div>
-            <div style="color:var(--g1);margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Your Investment</div>
-            <div style="color:var(--white);font-size:18px;font-weight:600;">$100,000</div>
+        <div class="deal-room-body">
+          <!-- Metrics -->
+          <div class="deal-metrics">
+            <div class="dm"><div class="dm-n">$8.5M</div><div class="dm-l">Target Offer</div></div>
+            <div class="dm"><div class="dm-n">8%</div><div class="dm-l">Preferred Return</div></div>
+            <div class="dm"><div class="dm-n">$50K</div><div class="dm-l">Min. Investment</div></div>
+            <div class="dm"><div class="dm-n">5–7 Yrs</div><div class="dm-l">Hold Period</div></div>
           </div>
-          <div>
-            <div style="color:var(--g1);margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Investment Date</div>
-            <div style="color:var(--white);">Q3 2026</div>
+
+          <!-- Description -->
+          <div class="deal-desc">Astera Hospitality Group is acquiring the DoubleTree by Hilton Harrisonburg — a 143-room, full-service Hilton-branded hotel anchored by James Madison University (22,500 students) and Sentara Health System. This is a value-add acquisition with a Hilton-approved PIP, declining NOI due to poor management, and zero new supply entering the market. We acquire at a significant discount, self-operate from day one, and target stabilized NOI of $1.3–1.5M by Year 3.</div>
+
+          <!-- Highlights -->
+          <div class="deal-highlights">
+            <div class="hl-item"><span class="hl-icon">◆</span><div class="hl-text"><b>University & Healthcare Demand</b>JMU 22,500 students + Sentara Health System drive year-round non-discretionary demand.</div></div>
+            <div class="hl-item"><span class="hl-icon">◆</span><div class="hl-text"><b>Zero New Supply</b>CoStar confirms no hotel properties under construction in the Harrisonburg submarket as of July 2026.</div></div>
+            <div class="hl-item"><span class="hl-icon">◆</span><div class="hl-text"><b>Hilton-Approved PIP</b>Full renovation scope approved April 2026. Post-renovation asset competes at market ADR of $135+.</div></div>
+            <div class="hl-item"><span class="hl-icon">◆</span><div class="hl-text"><b>Tax Benefits</b>Cost segregation on $2.5M PIP generates significant Year 1 paper losses — potentially $40,000+ per $100K invested.</div></div>
+            <div class="hl-item"><span class="hl-icon">◆</span><div class="hl-text"><b>GP Co-Investment</b>Astera invests $850,000 alongside LP investors. Aligned incentives on every transaction.</div></div>
+            <div class="hl-item"><span class="hl-icon">◆</span><div class="hl-text"><b>Defined Exit</b>5–7 year hold with clear sale or refinance thesis. GP buyout option available once investors hit target return.</div></div>
           </div>
-          <div>
-            <div style="color:var(--g1);margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Preferred Return</div>
-            <div style="color:var(--green);">8.0% annually</div>
+
+          <!-- Capital Raise Progress -->
+          <div class="tracker-card">
+            <div class="tracker-label">Capital Raise Progress — Target $1,700,000</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:18%"></div></div>
+            <div class="progress-labels"><span><b>$306,000</b> committed</span><span>$1,700,000 target</span></div>
           </div>
-          <div>
-            <div style="color:var(--g1);margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Profit Split</div>
-            <div style="color:var(--white);">70% LP / 30% GP above pref</div>
+
+          <!-- Key Terms Table -->
+          <div style="background:var(--card2);border:1px solid var(--hr);padding:20px;margin-top:2px;">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);margin-bottom:16px;">Key Investment Terms</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+              <div style="padding:10px 0;border-bottom:1px solid var(--hr);"><div style="font-size:11px;color:var(--g1);">Structure</div><div style="font-size:13px;color:var(--white);font-weight:600;">Reg D, Rule 506(b)</div></div>
+              <div style="padding:10px 0;border-bottom:1px solid var(--hr);padding-left:16px;"><div style="font-size:11px;color:var(--g1);">Min. Investment</div><div style="font-size:13px;color:var(--gold);font-weight:600;">$50,000</div></div>
+              <div style="padding:10px 0;border-bottom:1px solid var(--hr);"><div style="font-size:11px;color:var(--g1);">Preferred Return</div><div style="font-size:13px;color:var(--gold);font-weight:600;">8% Cumulative</div></div>
+              <div style="padding:10px 0;border-bottom:1px solid var(--hr);padding-left:16px;"><div style="font-size:11px;color:var(--g1);">Distributions</div><div style="font-size:13px;color:var(--white);font-weight:600;">Quarterly</div></div>
+              <div style="padding:10px 0;"><div style="font-size:11px;color:var(--g1);">Target IRR</div><div style="font-size:13px;color:var(--gold);font-weight:600;">15–20%</div></div>
+              <div style="padding:10px 0;padding-left:16px;"><div style="font-size:11px;color:var(--g1);">Exit Value (Yr 5)</div><div style="font-size:13px;color:var(--white);font-weight:600;">~$18.4M projected</div></div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="showTab('commit')" class="commit-btn" style="flex:1;min-width:160px;">Submit Soft Commit →</button>
+            <a href="doubletree-harrisonburg.html" style="flex:1;min-width:160px;display:block;text-align:center;border:1px solid var(--hr);color:var(--g2);padding:14px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold-br)'" onmouseout="this.style.borderColor='var(--hr)'">View Full Deal Page →</a>
           </div>
         </div>
-        <div class="deal-stats">
-          <div class="ds"><div class="ds-n">63%</div><div class="ds-l">Occupancy</div></div>
-          <div class="ds"><div class="ds-n">$131</div><div class="ds-l">ADR</div></div>
-          <div class="ds"><div class="ds-n">$82</div><div class="ds-l">RevPAR</div></div>
-          <div class="ds"><div class="ds-n">$979K</div><div class="ds-l">T-12 NOI</div></div>
-          <div class="ds"><div class="ds-n">Yr 1</div><div class="ds-l">Hold Period</div></div>
-        </div>
+      </div>
+
+      <!-- Coming Soon Deal -->
+      <div style="background:var(--card);border:1px solid var(--hr);padding:24px;margin-top:2px;opacity:.5;">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);margin-bottom:8px;">Coming Q4 2026</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--white);margin-bottom:4px;">Southeast Market Acquisition</div>
+        <div style="font-size:13px;color:var(--g1);">Branded hotel acquisition currently under underwriting. Priority access for existing investors.</div>
       </div>
     </div>
 
-    <!-- TAB: DISTRIBUTIONS -->
+    <!-- ── TAB: SOFT COMMIT ── -->
+    <div class="tab-content" id="tab-commit">
+      <div class="sec-head">
+        <div class="sec-title">Submit a Soft Commit</div>
+        <div class="sec-sub">A soft commit reserves your spot in the deal. No money moves until the PPM is signed and the subscription agreement is executed. You can adjust or withdraw at any time before closing.</div>
+      </div>
+
+      <div style="background:var(--card);border:1px solid var(--hr);padding:20px;margin-bottom:2px;">
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">DoubleTree by Hilton — Harrisonburg, VA</div>
+        <div style="font-size:12px;color:var(--g1);">Accepting soft commits · Minimum $50,000 · 8% preferred return</div>
+      </div>
+
+      <div class="commit-box">
+        <div class="commit-title">How much would you like to invest?</div>
+        <div class="commit-sub">Select a preset amount or enter a custom amount below. Minimum investment is $50,000.</div>
+
+        <div class="amount-grid" id="amountGrid">
+          <div class="amount-btn" onclick="selectAmount(50000)">$50K</div>
+          <div class="amount-btn" onclick="selectAmount(75000)">$75K</div>
+          <div class="amount-btn" onclick="selectAmount(100000)">$100K</div>
+          <div class="amount-btn" onclick="selectAmount(150000)">$150K</div>
+          <div class="amount-btn" onclick="selectAmount(250000)">$250K</div>
+          <div class="amount-btn" onclick="selectAmount(500000)">$500K</div>
+        </div>
+
+        <label class="field-label">Or enter a custom amount</label>
+        <input type="number" id="commitAmount" class="custom-amount" placeholder="100000" min="50000" step="5000">
+
+        <label class="field-label" style="margin-top:4px;">Additional Notes (Optional)</label>
+        <textarea id="commitNotes" class="custom-amount" rows="3" placeholder="Any questions, timing preferences, or notes for our team..." style="resize:vertical;margin-bottom:14px;"></textarea>
+
+        <label class="field-label">I confirm I am a verified accredited investor</label>
+        <select id="commitAcc" class="custom-amount" style="margin-bottom:14px;appearance:none;color:var(--g1);">
+          <option value="" disabled selected>Select...</option>
+          <option value="yes">Yes — I meet the income or net worth requirements</option>
+          <option value="no">No</option>
+        </select>
+
+        <!-- Projected return preview -->
+        <div id="returnPreview" style="display:none;background:rgba(196,164,74,.06);border:1px solid var(--gold-br);padding:16px;margin-bottom:14px;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Your Projected Returns</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div><div style="font-size:18px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;" id="prevAnnual">$8,000</div><div style="font-size:10px;color:var(--g1);">Annual Pref Return</div></div>
+            <div><div style="font-size:18px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;" id="prevQuart">$2,000</div><div style="font-size:10px;color:var(--g1);">Quarterly Distribution</div></div>
+            <div><div style="font-size:18px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;" id="prevExit">$140K+</div><div style="font-size:10px;color:var(--g1);">Projected 5-Yr Return</div></div>
+          </div>
+        </div>
+
+        <button class="commit-btn" onclick="submitCommit()">Submit Soft Commit</button>
+        <div class="commit-msg" id="commitMsg"></div>
+        <div class="commit-disc">This is a non-binding expression of interest only. No funds will be collected until you receive, review, and execute the Private Placement Memorandum and Subscription Agreement. You may withdraw this soft commit at any time prior to signing.</div>
+      </div>
+    </div>
+
+    <!-- ── TAB: DISTRIBUTIONS ── -->
     <div class="tab-content" id="tab-distributions">
-      <div style="background:var(--card);border:1px solid var(--hr);padding:28px;margin-bottom:28px;">
+      <div class="sec-head">
+        <div class="sec-title">Distribution History</div>
+        <div class="sec-sub">Quarterly distributions are paid on January 15, April 15, July 15, and October 15. Payments arrive via ACH within 2–3 business days.</div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-wrap">
+        <div class="chart-title">2026 Quarterly Distributions — DoubleTree Harrisonburg</div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">$1,600</div><div class="bar" style="height:50px;"></div><div class="bar-lbl">Q1 '26</div></div>
+          <div class="bar-col"><div class="bar-val">$1,600</div><div class="bar" style="height:50px;"></div><div class="bar-lbl">Q2 '26</div></div>
+          <div class="bar-col"><div class="bar-val">$1,600</div><div class="bar" style="height:50px;"></div><div class="bar-lbl">Q3 '26</div></div>
+          <div class="bar-col"><div class="bar-val" style="color:#444;">$1,600</div><div class="bar future" style="height:50px;"></div><div class="bar-lbl">Q4 '26</div></div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
         <table class="data-table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Deal</th>
-              <th>Type</th>
-              <th>Amount</th>
-              <th>Status</th>
+              <th>Date</th><th>Deal</th><th>Type</th><th>Amount</th><th>Method</th><th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Jul 15, 2026</td>
-              <td>DoubleTree Harrisonburg</td>
-              <td>Preferred Return</td>
-              <td style="color:var(--green);font-weight:600;">+$1,600</td>
-              <td><span class="badge badge-green">Paid</span></td>
-            </tr>
-            <tr>
-              <td>Apr 15, 2026</td>
-              <td>DoubleTree Harrisonburg</td>
-              <td>Preferred Return</td>
-              <td style="color:var(--green);font-weight:600;">+$1,600</td>
-              <td><span class="badge badge-green">Paid</span></td>
-            </tr>
-            <tr>
-              <td>Jan 15, 2026</td>
-              <td>DoubleTree Harrisonburg</td>
-              <td>Preferred Return</td>
-              <td style="color:var(--green);font-weight:600;">+$1,600</td>
-              <td><span class="badge badge-green">Paid</span></td>
-            </tr>
-            <tr>
-              <td>Oct 15, 2026</td>
-              <td>DoubleTree Harrisonburg</td>
-              <td>Preferred Return</td>
-              <td style="color:var(--gold);">$1,600 Est.</td>
-              <td><span class="badge badge-gold">Upcoming</span></td>
-            </tr>
+            <tr><td>Jul 15, 2026</td><td>DoubleTree Harrisonburg</td><td>Preferred Return</td><td style="color:var(--green);font-weight:600;">+$1,600</td><td>ACH</td><td><span class="badge badge-green">Paid</span></td></tr>
+            <tr><td>Apr 15, 2026</td><td>DoubleTree Harrisonburg</td><td>Preferred Return</td><td style="color:var(--green);font-weight:600;">+$1,600</td><td>ACH</td><td><span class="badge badge-green">Paid</span></td></tr>
+            <tr><td>Jan 15, 2026</td><td>DoubleTree Harrisonburg</td><td>Preferred Return</td><td style="color:var(--green);font-weight:600;">+$1,600</td><td>ACH</td><td><span class="badge badge-green">Paid</span></td></tr>
+            <tr><td>Oct 15, 2026</td><td>DoubleTree Harrisonburg</td><td>Preferred Return</td><td style="color:var(--gold);">$1,600</td><td>ACH</td><td><span class="badge badge-gold">Upcoming</span></td></tr>
           </tbody>
         </table>
       </div>
-      <div style="background:var(--card);border:1px solid var(--gold-br);padding:22px 24px;font-size:13px;color:var(--g2);line-height:1.65;">
-        Distributions are paid quarterly on the 15th of January, April, July, and October. Wire transfers typically clear within 2–3 business days. For distribution inquiries contact <a href="mailto:invest@asterahg.com" style="color:var(--gold);text-decoration:none;">invest@asterahg.com</a>.
+
+      <div style="background:var(--card);border:1px solid var(--hr);padding:16px 18px;margin-top:2px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div><div style="font-size:11px;color:var(--g1);">Total Received YTD</div><div style="font-size:20px;font-family:'Cormorant Garamond',serif;color:var(--green);font-weight:300;">$4,800</div></div>
+        <div><div style="font-size:11px;color:var(--g1);">Accrued Unpaid Pref</div><div style="font-size:20px;font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:300;">$0</div></div>
+        <div><div style="font-size:11px;color:var(--g1);">Lifetime Total</div><div style="font-size:20px;font-family:'Cormorant Garamond',serif;color:var(--white);font-weight:300;">$6,400</div></div>
+        <div><div style="font-size:11px;color:var(--g1);">Wire Instructions</div><div style="font-size:13px;color:var(--gold);margin-top:4px;"><a href="mailto:invest@asterahg.com" style="color:var(--gold);text-decoration:none;">Contact us to update banking info</a></div></div>
       </div>
     </div>
 
-    <!-- TAB: DOCUMENTS -->
+    <!-- ── TAB: DOCUMENTS ── -->
     <div class="tab-content" id="tab-documents">
+      <div class="sec-head">
+        <div class="sec-title">Document Vault</div>
+        <div class="sec-sub">All your investment documents in one place. Download and share with your CPA or attorney as needed.</div>
+      </div>
+
+      <div class="doc-section-title">Legal Documents</div>
       <div class="doc-grid">
         <div class="doc-card">
-          <div class="doc-icon">📄</div>
+          <div class="doc-icon">📋</div>
           <div class="doc-title">Subscription Agreement</div>
-          <div class="doc-meta">Signed · July 2026</div>
+          <div class="doc-meta">DoubleTree Harrisonburg · Signed July 2026</div>
           <a href="#" class="doc-btn">Download PDF</a>
         </div>
         <div class="doc-card">
-          <div class="doc-icon">📋</div>
+          <div class="doc-icon">📄</div>
           <div class="doc-title">Private Placement Memorandum</div>
           <div class="doc-meta">DoubleTree Harrisonburg · 2026</div>
           <a href="#" class="doc-btn">Download PDF</a>
@@ -336,110 +474,349 @@ nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;align-items:cent
         <div class="doc-card">
           <div class="doc-icon">🏦</div>
           <div class="doc-title">Operating Agreement</div>
-          <div class="doc-meta">Deal Entity · 2026</div>
+          <div class="doc-meta">DT Harrisonburg LLC · 2026</div>
           <a href="#" class="doc-btn">Download PDF</a>
         </div>
+      </div>
+
+      <div class="doc-section-title">Tax Documents</div>
+      <div class="doc-grid">
         <div class="doc-card">
           <div class="doc-icon">📊</div>
+          <div class="doc-title">Schedule K-1 — 2026</div>
+          <div class="doc-meta">Tax Year 2026 · Available March 15, 2027</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon">🧾</div>
+          <div class="doc-title">Form 1065 (Partnership Return)</div>
+          <div class="doc-meta">Tax Year 2026 · Available March 15, 2027</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon">📉</div>
+          <div class="doc-title">Cost Segregation Study</div>
+          <div class="doc-meta">DoubleTree PIP · Q1 2027</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+      </div>
+
+      <div class="doc-section-title">Financial Reports</div>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <div class="doc-icon">📈</div>
           <div class="doc-title">Q2 2026 Financial Report</div>
-          <div class="doc-meta">Quarterly Financials · July 2026</div>
+          <div class="doc-meta">Occupancy, ADR, NOI, PIP update</div>
           <a href="#" class="doc-btn">Download PDF</a>
         </div>
         <div class="doc-card">
           <div class="doc-icon">🏨</div>
           <div class="doc-title">Property Update — Q2 2026</div>
-          <div class="doc-meta">Renovation Progress · July 2026</div>
+          <div class="doc-meta">Renovation progress, photos, timeline</div>
           <a href="#" class="doc-btn">Download PDF</a>
         </div>
         <div class="doc-card">
-          <div class="doc-icon">📝</div>
-          <div class="doc-title">Schedule K-1</div>
-          <div class="doc-meta">Tax Year 2026 · Available March 2027</div>
-          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+          <div class="doc-icon">📑</div>
+          <div class="doc-title">Original Investor Deck</div>
+          <div class="doc-meta">DoubleTree Harrisonburg · July 2026</div>
+          <a href="#" class="doc-btn">Download PDF</a>
         </div>
+      </div>
+
+      <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.15);padding:16px 18px;margin-top:16px;">
+        <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:4px;">Share with your CPA or Attorney</div>
+        <div style="font-size:12px;color:var(--g2);line-height:1.65;">Your CPA can access your tax documents directly by logging in with their own CPA Portal credentials. Contact <a href="mailto:invest@asterahg.com" style="color:var(--gold);text-decoration:none;">invest@asterahg.com</a> to set up CPA access for your advisor.</div>
       </div>
     </div>
 
-    <!-- TAB: UPDATES -->
+    <!-- ── TAB: UPDATES ── -->
     <div class="tab-content" id="tab-updates">
+      <div class="sec-head">
+        <div class="sec-title">Investor Updates</div>
+        <div class="sec-sub">Quarterly letters and deal updates directly from the Astera team.</div>
+      </div>
       <div class="msg-card">
         <div class="msg-from">Q2 2026 Investor Update — Astera Hospitality Group</div>
         <div class="msg-date">July 10, 2026 · From Saajan Patel, Co-CEO</div>
-        <div class="msg-body">
-          We are pleased to report continued strong performance at the DoubleTree by Hilton Harrisonburg. Occupancy for Q2 came in at 63.4%, in line with our underwriting. The Hilton-approved PIP is on schedule with guestroom renovations 40% complete as of this writing. ADR has held steady at $130.80 against our comp set. Q3 distributions will be processed on October 15. We anticipate ADR improvement of 5-8% following renovation completion in Q4. Full financials are attached in the Documents tab. Thank you for your continued trust in Astera.
-        </div>
+        <div class="msg-body">We are pleased to report continued progress on the DoubleTree by Hilton Harrisonburg acquisition. Our offer has been submitted at $8.5M and we are in active discussions with the broker team at Avison Young. The Hilton-approved PIP remains on schedule and our SBA 504 pre-qualification is underway with our lending partner. Q3 distributions for investors already committed will be processed on October 15, 2026. We anticipate closing this transaction in Q4 2026 pending financing confirmation and LOI acceptance. Thank you for your continued confidence in Astera.</div>
       </div>
       <div class="msg-card">
-        <div class="msg-from">Welcome to Astera Hospitality Group — Portal Access Confirmed</div>
-        <div class="msg-date">July 1, 2026 · From Astera Investor Relations</div>
-        <div class="msg-body">
-          Welcome to the Astera Hospitality Group investor portal. This is your secure hub for all investment documents, distribution records, property updates, and K-1 tax documents. Your first quarterly distribution will be processed on July 15, 2026. If you have any questions at any time, please contact us directly at invest@asterahg.com. We look forward to a long and profitable partnership.
-        </div>
+        <div class="msg-from">Welcome to Astera Hospitality Group Investor Portal</div>
+        <div class="msg-date">July 1, 2026 · From Investor Relations</div>
+        <div class="msg-body">Welcome to your Astera investor portal. This is your secure hub for all investment documents, distribution records, deal updates, and tax documents. Your quarterly distributions will be processed automatically on the 15th of each quarter month. If you have any questions at any time, contact us at invest@asterahg.com. We look forward to a long and profitable partnership.</div>
       </div>
     </div>
 
-    <!-- FOOTER -->
-    <div style="margin-top:52px;padding-top:28px;border-top:1px solid var(--hr);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
-      <div style="font-size:11px;color:var(--g1);">© 2026 Astera Hospitality Group LLC · All portal activity is encrypted and logged · <a href="mailto:invest@asterahg.com" style="color:var(--gold);text-decoration:none;">invest@asterahg.com</a></div>
-      <a href="astera-hospitality-group.html" style="font-size:11px;color:var(--g1);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--g1)'">← Return to Main Site</a>
+    <!-- ── TAB: PROFILE ── -->
+    <div class="tab-content" id="tab-profile">
+      <div class="sec-head">
+        <div class="sec-title">My Investor Profile</div>
+        <div class="sec-sub">Your account information. Contact invest@asterahg.com to update any details.</div>
+      </div>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Personal Information</div>
+          <div class="profile-field"><span class="pf-label">Full Name</span><span class="pf-val" id="profileName">—</span></div>
+          <div class="profile-field"><span class="pf-label">Email</span><span class="pf-val" id="profileEmail">—</span></div>
+          <div class="profile-field"><span class="pf-label">Investor Type</span><span class="pf-val">Accredited Individual</span></div>
+          <div class="profile-field"><span class="pf-label">Portal Access</span><span class="pf-val" style="color:var(--green);">Active</span></div>
+        </div>
+        <div class="profile-card">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Investment Summary</div>
+          <div class="profile-field"><span class="pf-label">Active Deals</span><span class="pf-val">1</span></div>
+          <div class="profile-field"><span class="pf-label">Total Committed</span><span class="pf-val" id="profileCommitted">$100,000</span></div>
+          <div class="profile-field"><span class="pf-label">Total Received</span><span class="pf-val" style="color:var(--green);">$6,400</span></div>
+          <div class="profile-field"><span class="pf-label">Member Since</span><span class="pf-val">July 2026</span></div>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--hr);padding:20px;margin-top:2px;">
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:8px;">Need to update your information?</div>
+        <div style="font-size:13px;color:var(--g1);line-height:1.65;margin-bottom:14px;">To update your banking details for ACH distributions, accreditation documents, or contact information, please email our investor relations team.</div>
+        <a href="mailto:invest@asterahg.com" style="display:inline-block;background:var(--gold-dim);border:1px solid var(--gold-br);color:var(--gold);padding:10px 18px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;">Contact Investor Relations</a>
+      </div>
+    </div>
+
+    <!-- ── CPA TAB: TAX DOCUMENTS ── -->
+    <div class="tab-content" id="tab-cpa-docs">
+      <div class="cpa-notice"><p>🔒 CPA Portal — You have read-only access to tax documents for your authorized clients. Contact invest@asterahg.com to add or remove client access.</p></div>
+      <div class="sec-head">
+        <div class="sec-title">Tax Documents</div>
+        <div class="sec-sub">K-1s and partnership returns for your clients who have invested with Astera Hospitality Group.</div>
+      </div>
+      <div class="doc-section-title">Tax Year 2026 — DoubleTree by Hilton Harrisonburg LLC</div>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <div class="doc-icon">📊</div>
+          <div class="doc-title">Schedule K-1 — Client A</div>
+          <div class="doc-meta">Tax Year 2026 · Available March 15, 2027</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon">📊</div>
+          <div class="doc-title">Schedule K-1 — Client B</div>
+          <div class="doc-meta">Tax Year 2026 · Available March 15, 2027</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon">🧾</div>
+          <div class="doc-title">Form 1065 Partnership Return</div>
+          <div class="doc-meta">DT Harrisonburg LLC · Tax Year 2026</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-icon">📉</div>
+          <div class="doc-title">Cost Segregation Study</div>
+          <div class="doc-meta">DoubleTree PIP Renovation · Q1 2027</div>
+          <a href="#" class="doc-btn" style="opacity:.5;pointer-events:none;">Pending</a>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--hr);padding:16px 18px;margin-top:16px;font-size:13px;color:var(--g1);line-height:1.65;">All K-1s will be available by March 15, 2027. You will receive an email notification when documents are uploaded. Questions? <a href="mailto:invest@asterahg.com" style="color:var(--gold);text-decoration:none;">invest@asterahg.com</a></div>
+    </div>
+
+    <!-- ── CPA TAB: CLIENTS ── -->
+    <div class="tab-content" id="tab-cpa-clients">
+      <div class="cpa-notice"><p>🔒 You are viewing investment summaries for clients who have authorized your CPA access. Individual client data is confidential.</p></div>
+      <div class="sec-head">
+        <div class="sec-title">Client Investment Summary</div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Client</th><th>Deal</th><th>Amount Invested</th><th>Investment Date</th><th>Distributions YTD</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Client A</td><td>DoubleTree Harrisonburg</td><td>$100,000</td><td>Jul 2026</td><td style="color:var(--green);">$4,800</td><td><span class="badge badge-green">Active</span></td></tr>
+            <tr><td>Client B</td><td>DoubleTree Harrisonburg</td><td>$50,000</td><td>Jul 2026</td><td style="color:var(--green);">$2,400</td><td><span class="badge badge-green">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top:52px;padding-top:24px;border-top:1px solid var(--hr);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:11px;color:var(--g1);">© 2026 Astera Hospitality Group LLC · <a href="mailto:invest@asterahg.com" style="color:var(--gold);text-decoration:none;">invest@asterahg.com</a></div>
+      <a href="astera-hospitality-group.html" style="font-size:11px;color:var(--g1);text-decoration:none;">← Main Site</a>
     </div>
 
   </div>
 </div>
 
 <script>
-// Demo credentials — in production connect to real auth backend
-const DEMO_USERS = [
-  { email: 'investor@astera.com', pass: 'astera2026', name: 'Dr. Patel' },
-  { email: 'invest@asterahg.com', pass: 'astera2026', name: 'Saajan Patel' },
-  { email: 'demo@asterahg.com', pass: 'demo123', name: 'Demo Investor' },
+// ── USERS ─────────────────────────────────────────────────────────────────
+const USERS = [
+  { email:'investor@asterahg.com', pass:'astera2026', name:'Demo Investor', type:'investor', invested:100000, distributions:6400 },
+  { email:'demo@asterahg.com',     pass:'demo123',    name:'Demo Investor', type:'investor', invested:100000, distributions:6400 },
+  { email:'invest@asterahg.com',   pass:'astera2026', name:'Saajan Patel',  type:'investor', invested:850000, distributions:0 },
+  { email:'cpa@asterahg.com',      pass:'cpa2026',    name:'Randall Brown CPA', type:'cpa', invested:0, distributions:0 },
 ];
+
+let currentUser = null;
+let loginType = 'investor';
+
+function setLoginType(type) {
+  loginType = type;
+  document.getElementById('toggleInvestor').classList.toggle('active', type==='investor');
+  document.getElementById('toggleCPA').classList.toggle('active', type==='cpa');
+}
 
 function doLogin() {
   const email = document.getElementById('loginEmail').value.trim().toLowerCase();
-  const pass = document.getElementById('loginPass').value;
-  const err = document.getElementById('loginErr');
+  const pass  = document.getElementById('loginPass').value;
+  const err   = document.getElementById('loginErr');
+  const user  = USERS.find(u => u.email===email && u.pass===pass);
 
-  const user = DEMO_USERS.find(u => u.email === email && u.pass === pass);
-  if (user) {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-    document.getElementById('investorName').textContent = user.name;
-    document.getElementById('navPortalBtn').textContent = 'My Portal';
-    err.style.display = 'none';
-    sessionStorage.setItem('ah_user', user.name);
+  if (!user) { err.style.display='block'; document.getElementById('loginPass').value=''; return; }
+  err.style.display='none';
+  currentUser = user;
+  sessionStorage.setItem('ahg_user', JSON.stringify(user));
+  renderDashboard(user);
+}
+
+function renderDashboard(user) {
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('logoutBtn').style.display='block';
+  document.getElementById('navUser').textContent = user.name;
+  document.getElementById('investorName').textContent = user.name.split(' ')[0];
+  document.getElementById('lastLogin').textContent = 'Last login: ' + new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  document.getElementById('profileName').textContent = user.name;
+  document.getElementById('profileEmail').textContent = user.email;
+  document.getElementById('profileCommitted').textContent = '$' + user.invested.toLocaleString();
+
+  if (user.type === 'cpa') {
+    document.getElementById('navBadge').textContent='CPA Access';
+    document.getElementById('navBadge').style.display='block';
+    document.getElementById('investorStats').style.display='none';
+    document.getElementById('cpaStats').style.display='grid';
+    document.getElementById('investorTabs').style.display='none';
+    document.getElementById('cpaTabs').style.display='flex';
+    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+    document.getElementById('tab-cpa-docs').classList.add('active');
+    document.querySelector('#cpaTabs .tab').classList.add('active');
   } else {
-    err.style.display = 'block';
-    document.getElementById('loginPass').value = '';
+    document.getElementById('navBadge').textContent='Investor';
+    document.getElementById('navBadge').style.display='block';
+    document.getElementById('statInvested').textContent='$'+user.invested.toLocaleString();
+    document.getElementById('statDist').textContent='$'+user.distributions.toLocaleString();
   }
 }
 
 function doLogout() {
-  sessionStorage.removeItem('ah_user');
-  document.getElementById('dashboard').style.display = 'none';
-  document.getElementById('loginScreen').style.display = 'flex';
-  document.getElementById('loginEmail').value = '';
-  document.getElementById('loginPass').value = '';
-  document.getElementById('navPortalBtn').textContent = 'Investor Portal';
+  sessionStorage.removeItem('ahg_user');
+  currentUser=null;
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('logoutBtn').style.display='none';
+  document.getElementById('navBadge').style.display='none';
+  document.getElementById('navUser').textContent='';
+  document.getElementById('loginEmail').value='';
+  document.getElementById('loginPass').value='';
+  // Reset tabs
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelector('#investorTabs .tab').classList.add('active');
+  document.getElementById('tab-deals').classList.add('active');
+  document.getElementById('investorStats').style.display='grid';
+  document.getElementById('cpaStats').style.display='none';
+  document.getElementById('investorTabs').style.display='flex';
+  document.getElementById('cpaTabs').style.display='none';
 }
 
 function showTab(id) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+  const allTabs = document.querySelectorAll('.tab');
+  const allContents = document.querySelectorAll('.tab-content');
+  allTabs.forEach(t=>t.classList.remove('active'));
+  allContents.forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
   event.target.classList.add('active');
 }
 
-// Auto login if session exists
-window.onload = function() {
-  const saved = sessionStorage.getItem('ah_user');
-  if (saved) {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-    document.getElementById('investorName').textContent = saved;
-  }
-};
-</script>
+// ── SOFT COMMIT ──────────────────────────────────────────────────────────
+let selectedAmount = 0;
 
+function selectAmount(amt) {
+  selectedAmount = amt;
+  document.querySelectorAll('.amount-btn').forEach(b=>b.classList.remove('selected'));
+  event.target.classList.add('selected');
+  document.getElementById('commitAmount').value = amt;
+  updateReturnPreview(amt);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('commitAmount');
+  if (input) {
+    input.addEventListener('input', () => {
+      const val = parseInt(input.value);
+      if (val >= 50000) updateReturnPreview(val);
+    });
+  }
+
+  // Auto-login from session
+  const saved = sessionStorage.getItem('ahg_user');
+  if (saved) { currentUser = JSON.parse(saved); renderDashboard(currentUser); }
+});
+
+function updateReturnPreview(amt) {
+  const preview = document.getElementById('returnPreview');
+  if (!preview || !amt || amt < 50000) { if(preview) preview.style.display='none'; return; }
+  preview.style.display='block';
+  const annual = Math.round(amt * 0.08);
+  const quart = Math.round(annual / 4);
+  const exit = Math.round(amt * 1.4);
+  document.getElementById('prevAnnual').textContent = '$' + annual.toLocaleString();
+  document.getElementById('prevQuart').textContent = '$' + quart.toLocaleString();
+  document.getElementById('prevExit').textContent = '$' + exit.toLocaleString() + '+';
+}
+
+async function submitCommit() {
+  const amt = parseInt(document.getElementById('commitAmount').value);
+  const acc = document.getElementById('commitAcc').value;
+  const notes = document.getElementById('commitNotes').value;
+  const msg = document.getElementById('commitMsg');
+  const btn = document.querySelector('#tab-commit .commit-btn');
+
+  if (!amt || amt < 50000) {
+    msg.style.display='block';
+    msg.style.background='rgba(248,113,113,.08)';
+    msg.style.border='1px solid rgba(248,113,113,.25)';
+    msg.style.color='#f87171';
+    msg.textContent='Minimum investment is $50,000.';
+    return;
+  }
+  if (!acc || acc==='no') {
+    msg.style.display='block';
+    msg.style.background='rgba(248,113,113,.08)';
+    msg.style.border='1px solid rgba(248,113,113,.25)';
+    msg.style.color='#f87171';
+    msg.textContent='You must be a verified accredited investor to invest.';
+    return;
+  }
+
+  btn.textContent='Submitting...';
+  btn.disabled=true;
+
+  try {
+    await fetch('https://formspree.io/f/xlgqlzjp', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        investor: currentUser ? currentUser.name : 'Portal Investor',
+        email: currentUser ? currentUser.email : 'Unknown',
+        deal: 'DoubleTree by Hilton Harrisonburg',
+        amount: '$' + amt.toLocaleString(),
+        accredited: acc,
+        notes: notes || 'None',
+        _subject: 'Soft Commit — $' + amt.toLocaleString() + ' — DoubleTree Harrisonburg'
+      })
+    });
+  } catch(e) {}
+
+  msg.style.display='block';
+  msg.style.background='rgba(74,222,128,.08)';
+  msg.style.border='1px solid rgba(74,222,128,.25)';
+  msg.style.color='#4ade80';
+  msg.innerHTML='✓ Soft commit of <strong>$'+amt.toLocaleString()+'</strong> received. Our team will contact you within 48 hours with next steps including the PPM and subscription agreement.';
+  btn.textContent='Commit Submitted';
+  setTimeout(()=>{btn.disabled=false;btn.textContent='Submit Soft Commit';},5000);
+}
+</script>
 </body>
 </html>

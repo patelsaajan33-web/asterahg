@@ -448,5 +448,132 @@ nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;align-items:cent
   </div>
 </div>
 
+<!-- ACCESS GATE OVERLAY -->
+<div id="gate" style="position:fixed;inset:0;z-index:200;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:var(--card);border:1px solid var(--gold-br);padding:44px 36px;max-width:480px;width:100%;position:relative;">
+
+    <!-- Logo -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--white);margin-bottom:28px;">ASTERA <span style="color:var(--gold);">HG</span></div>
+
+    <!-- Headline -->
+    <div style="font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Restricted Access</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:8px;">DoubleTree by Hilton<br><em style="color:var(--gold);">Harrisonburg, Virginia</em></div>
+    <p style="font-size:14px;color:var(--g2);line-height:1.7;margin-bottom:28px;">This investment opportunity is available exclusively to verified accredited investors. Please provide your information to access the full offering details.</p>
+
+    <!-- Gate Form -->
+    <form id="gateForm" style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div>
+          <label style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:5px;">First Name *</label>
+          <input type="text" id="gFn" required placeholder="Saajan" style="width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--white);padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;border-radius:0;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--hr)'">
+        </div>
+        <div>
+          <label style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:5px;">Last Name *</label>
+          <input type="text" id="gLn" required placeholder="Patel" style="width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--white);padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;border-radius:0;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--hr)'">
+        </div>
+      </div>
+      <div>
+        <label style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:5px;">Email Address *</label>
+        <input type="email" id="gEm" required placeholder="you@example.com" style="width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--white);padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;border-radius:0;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--hr)'">
+      </div>
+      <div>
+        <label style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:5px;">Phone Number</label>
+        <input type="tel" id="gPh" placeholder="+1 (555) 000-0000" style="width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--white);padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;border-radius:0;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--hr)'">
+      </div>
+      <div>
+        <label style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);display:block;margin-bottom:5px;">I confirm I am an accredited investor *</label>
+        <select id="gAcc" required style="width:100%;background:var(--dark);border:1px solid var(--hr);color:var(--g1);padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;appearance:none;border-radius:0;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--hr)'">
+          <option value="" disabled selected>Select...</option>
+          <option value="yes">Yes — I meet the accredited investor requirements</option>
+          <option value="no">No — I do not qualify</option>
+        </select>
+      </div>
+      <div id="gMsg" style="display:none;padding:10px 14px;font-size:13px;border-radius:0;"></div>
+      <button type="submit" onclick="submitGate(event)" style="background:var(--gold);color:var(--black);padding:14px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;margin-top:4px;transition:background .2s;" onmouseover="this.style.background='var(--gold-lt)'" onmouseout="this.style.background='var(--gold)'">Access Deal Materials</button>
+    </form>
+
+    <p style="font-size:11px;color:var(--g1);line-height:1.65;margin-top:16px;text-align:center;">Not an offer to sell securities. Available exclusively to accredited investors under Reg D Rule 506(b). Your information is kept confidential.</p>
+    <div style="text-align:center;margin-top:12px;">
+      <a href="astera-hospitality-group.html" style="font-size:12px;color:var(--g1);text-decoration:none;">← Return to Main Site</a>
+    </div>
+  </div>
+</div>
+
+<script>
+async function submitGate(e) {
+  e.preventDefault();
+  const fn = document.getElementById('gFn').value.trim();
+  const ln = document.getElementById('gLn').value.trim();
+  const em = document.getElementById('gEm').value.trim();
+  const acc = document.getElementById('gAcc').value;
+  const msg = document.getElementById('gMsg');
+  const btn = e.target;
+
+  if (!fn || !ln || !em || !acc) {
+    msg.style.display='block';
+    msg.style.background='rgba(248,113,113,.08)';
+    msg.style.border='1px solid rgba(248,113,113,.25)';
+    msg.style.color='#f87171';
+    msg.textContent='Please complete all required fields.';
+    return;
+  }
+  if (!em.includes('@') || !em.includes('.')) {
+    msg.style.display='block';
+    msg.style.background='rgba(248,113,113,.08)';
+    msg.style.border='1px solid rgba(248,113,113,.25)';
+    msg.style.color='#f87171';
+    msg.textContent='Please enter a valid email address.';
+    return;
+  }
+  if (acc === 'no') {
+    msg.style.display='block';
+    msg.style.background='rgba(248,113,113,.08)';
+    msg.style.border='1px solid rgba(248,113,113,.25)';
+    msg.style.color='#f87171';
+    msg.textContent='This opportunity is available to accredited investors only. Please contact invest@asterahg.com with questions.';
+    return;
+  }
+
+  btn.textContent = 'Verifying...';
+  btn.disabled = true;
+
+  // Submit lead to Formspree
+  try {
+    const res = await fetch('https://formspree.io/f/xlgqlzjp', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        firstName: fn,
+        lastName: ln,
+        email: em,
+        phone: document.getElementById('gPh').value || 'Not provided',
+        accredited: acc,
+        source: 'DoubleTree Deal Page Gate',
+        _subject: 'Deal Page Access Request — ' + fn + ' ' + ln
+      })
+    });
+  } catch(err) {
+    // Silent fail — still grant access
+  }
+
+  // Store in session so they don't see gate again this visit
+  sessionStorage.setItem('ahg_gate_passed', '1');
+  sessionStorage.setItem('ahg_visitor', fn + ' ' + ln);
+
+  // Animate gate out
+  const gate = document.getElementById('gate');
+  gate.style.transition = 'opacity 0.6s ease';
+  gate.style.opacity = '0';
+  setTimeout(() => { gate.style.display = 'none'; }, 600);
+}
+
+// Check if already passed gate this session
+window.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem('ahg_gate_passed')) {
+    document.getElementById('gate').style.display = 'none';
+  }
+});
+</script>
+
 </body>
 </html>
